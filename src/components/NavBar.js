@@ -1,11 +1,12 @@
-import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../assets/taskflow-logo.png";
+import React from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import logo from '../assets/taskflow-logo.png';
+import styles from '../styles/NavBar.module.css'
 
 const NavBar = () => {
   return (
     <Container>
-      <Navbar bg="light" expand="md" fixed="top">
+      <Navbar className={styles.NavBar} bg="light" expand="md" fixed="top">
         <Navbar.Brand href="#home">
           <img src={logo} alt="logo" height="45" />
         </Navbar.Brand>
