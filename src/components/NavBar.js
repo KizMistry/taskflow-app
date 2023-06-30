@@ -1,27 +1,30 @@
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../assets/taskflow-logo.png';
-import styles from '../styles/NavBar.module.css'
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import logo from "../assets/taskflow-logo.png";
+import styles from "../styles/NavBar.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <Container>
       <Navbar className={styles.NavBar} bg="light" expand="md" fixed="top">
-        <Navbar.Brand href="#home">
-          <img src={logo} alt="logo" height="45" />
-        </Navbar.Brand>
+        <NavLink to="/">
+          <Navbar.Brand href="#home">
+            <img src={logo} alt="logo" height="45" />
+          </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="Home">
+            <NavLink to="/">
               <i className="fas fa-home"></i>Home
-            </Nav.Link>
-            <Nav.Link href="Sign in">
+            </NavLink>
+            <NavLink to="/signin">
               <i className="fas fa-sign-in-alt"></i>Link
-            </Nav.Link>
-            <Nav.Link href="Sign up">
+            </NavLink>
+            <NavLink to="/signup">
               <i className="fas fa-user-plus"></i>Link
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
