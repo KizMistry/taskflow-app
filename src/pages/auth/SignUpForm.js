@@ -20,13 +20,10 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
-    name: "",
-    bio: "",
-    profession: "",
     password1: "",
     password2: "",
   });
-  const { username, name, bio, profession, password1, password2 } = signUpData;
+  const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
@@ -72,39 +69,6 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-            <Form.Group controlId="name">
-              <Form.Label className="d-none">name</Form.Label>
-              <Form.Control
-                className={styles.Input}
-                type="text"
-                placeholder="Full Name"
-                name="name"
-                value={name}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="bio">
-              <Form.Label className="d-none">bio</Form.Label>
-              <Form.Control
-                className={styles.Input}
-                type="text"
-                placeholder="Bio (optional)"
-                name="bio"
-                value={bio}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="profession">
-              <Form.Label className="d-none">profession</Form.Label>
-              <Form.Control
-                className={styles.Input}
-                type="text"
-                placeholder="Profession (optional)"
-                name="profession"
-                value={profession}
-                onChange={handleChange}
-              />
-            </Form.Group>
 
             <Form.Group controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
