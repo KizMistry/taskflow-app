@@ -35,14 +35,14 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/projects"
       >
-        <i className="fa-regular fa-rectangle-history"></i>Projects
+        <i className="fa-solid fa-diagram-project"></i>Projects
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/tasks"
       >
-        <i className="fa-regular fa-diagram-subtask"></i>Tasks
+        <i className="fa-solid fa-list-check"></i>Tasks
       </NavLink>
       <NavLink
         className={styles.NavLink}
