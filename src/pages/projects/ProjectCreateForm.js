@@ -12,15 +12,35 @@ import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-function ProjectCreateForm() {
+import Asset from "../../components/Asset"
 
+function ProjectCreateForm() {
   const [errors, setErrors] = useState({});
+
+  const [projectData, setProjectData] = useState({
+    title: "",
+    description: "",
+  });
+  const { title, description } = projectData;
+
+  const handleChange = (event) => {
+    setProjectData({
+      ...projectData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
 
   const textFields = (
     <div className="text-center">
-      {/* Add your form fields here */}
-
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control type="text" name="title" value={title} onChange={handleChange}/>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Description</Form.Label>
+        <Form.Control as="textarea" rows={6} name="description" value={description} onChange={handleChange}/>
+      </Form.Group>
     
     
       <Button
@@ -38,24 +58,8 @@ function ProjectCreateForm() {
   return (
     <Form>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
-            <Form.Group className="text-center">
-              
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  ASSET
-                </Form.Label>
 
-            </Form.Group>
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={12} lg={12} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
