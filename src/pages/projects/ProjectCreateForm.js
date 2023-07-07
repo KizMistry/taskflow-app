@@ -6,13 +6,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-import Upload from "../../assets/upload.png";
-
 import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
-import Asset from "../../components/Asset"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function ProjectCreateForm() {
   const [errors, setErrors] = useState({});
@@ -22,6 +20,7 @@ function ProjectCreateForm() {
     description: "",
   });
   const { title, description } = projectData;
+  const history = useHistory();
 
   const handleChange = (event) => {
     setProjectData({
@@ -29,6 +28,24 @@ function ProjectCreateForm() {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData();
+
+    formData.append('title', title)
+    formData.append('description', description)
+
+    try {
+      const {data} = await axiosReq.post('/projects/', formData);
+      history.push(`/projects/${data.id}`)
+    } catch(err){
+      console.log(err)
+      if (err.response?.status !== 401){
+        setErrors(err.response?.data)
+      }
+    }
+  }
 
 
   const textFields = (
@@ -56,7 +73,7 @@ function ProjectCreateForm() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
 
         <Col md={12} lg={12} className="d-none d-md-block p-0 p-md-2">
