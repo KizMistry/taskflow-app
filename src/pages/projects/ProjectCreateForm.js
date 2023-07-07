@@ -11,6 +11,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Alert } from "react-bootstrap";
 
 function ProjectCreateForm() {
   const [errors, setErrors] = useState({});
@@ -54,15 +55,25 @@ function ProjectCreateForm() {
         <Form.Label>Title</Form.Label>
         <Form.Control type="text" name="title" value={title} onChange={handleChange}/>
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control as="textarea" rows={6} name="description" value={description} onChange={handleChange}/>
       </Form.Group>
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
     
     
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
         cancel
       </Button>
