@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import Project from "./Project";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -20,6 +21,7 @@ function ProjectPage() {
         ]);
         setProject({ results: [project] });
         console.log(project);
+        console.log(project.description);
       } catch (err) {
         console.log(err);
       }
@@ -28,14 +30,15 @@ function ProjectPage() {
   }, [id]);
 
   return (
-    <Container>
-      <Row>
+    <Container className={appStyles.Content}>
+      <Row className="h-100">
+      <Project {...project.results[0]} setProjects={setProject} projectPage />
         <Col>
           <div className="bg-light p-2">
             <h2>To Do</h2>
 
             <div key="task.id" className="card mb-2" draggable>
-              <div className="card-body">task.title</div>
+              <div className="card-body">project.title</div>
             </div>
           </div>
         </Col>
