@@ -4,6 +4,7 @@ import { Card, Media } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Avatar from "../../components/Avatar"
+import { OptionDropdown } from "../../components/OptionDropdown";
 
 const Project = (props) => {
   const {
@@ -31,7 +32,7 @@ const Project = (props) => {
         </Link>
         <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && projectPage && "..."}
+            {is_owner && projectPage && <OptionDropdown />}
         </div>
         </Media>
       </Card.Body>
