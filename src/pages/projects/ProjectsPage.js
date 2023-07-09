@@ -13,6 +13,8 @@ import Project from "./Project";
 
 import NoResults from "../../assets/no-results.png";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function ProjectsPage({ message, filter = "" }) {
   const [projects, setProjects] = useState({ results: [] });
@@ -62,13 +64,22 @@ function ProjectsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {projects.results.length ? (
-              projects.results.map((project) => (
-                <Project
-                  key={project.id}
-                  {...project}
-                  setProjects={setProjects}
+                <InfiniteScroll
+                children={
+                    projects.results.map((project) => (
+                        <Project
+                          key={project.id}
+                          {...project}
+                          setProjects={setProjects}
+                        />
+                      ))
+                }
+                dataLength={projects.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!projects.next}
+                next={() => fetchMoreData(projects, setProjects)}
                 />
-              ))
+              
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
