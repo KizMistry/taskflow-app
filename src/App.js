@@ -7,24 +7,39 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import ProjectCreateForm from "./pages/projects/ProjectCreateForm";
 import ProjectPage from "./pages/projects/ProjectPage";
-
+import ProjectsPage from "./pages/projects/ProjectsPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
 
   return (
-        <div className={styles.App}>
-          <NavBar />
-          <Container className={styles.Main}>
-            <Switch>
-              <Route exact path="/" render={() => <h1>Home Page</h1>} />
-              <Route exact path="/signin" render={() => <SignInForm />} />
-              <Route exact path="/signup" render={() => <SignUpForm />} />
-              <Route exact path="/projects/create" render={() => <ProjectCreateForm />} />
-              <Route exact path="/projects/:id" render={() => <ProjectPage />} />
-              <Route render={() => <p>Page not found!</p>} />
-            </Switch>
-          </Container>
-        </div>
+    <div className={styles.App}>
+      <NavBar />
+      <Container className={styles.Main}>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <ProjectsPage 
+              message="Create a new Project to get started."
+              filter={`owner__project_owner=${profile_id}&ordering=-created_at&`} />
+            )}
+          />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route
+            exact
+            path="/projects/create"
+            render={() => <ProjectCreateForm />}
+          />
+          <Route exact path="/projects/:id" render={() => <ProjectPage />} />
+          <Route render={() => <p>Page not found!</p>} />
+        </Switch>
+      </Container>
+    </div>
   );
 }
 
