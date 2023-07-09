@@ -14,24 +14,28 @@ const Options = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const OptionDropdown = () => {
+export const OptionDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={Options} />
 
-      <Dropdown.Menu className="text-center">
-        <Dropdown.Item 
-        className={styles.DropdownItem}
-        onClick={() => {}}
-        aria-label="edit">
-            <i className="fas fa-edit" />
-            </Dropdown.Item>
-        <Dropdown.Item 
-        className={styles.DropdownItem}
-        onClick={() => {}}
-        aria-label="delete">
-        <i className="fas fa-trash" />
-        
+      <Dropdown.Menu
+        className="text-center"
+        popperConfig={{ strategy: "fixed" }}
+      >
+        <Dropdown.Item
+          className={styles.DropdownItem}
+          onClick={handleEdit}
+          aria-label="edit"
+        >
+          <i className="fas fa-edit" />
+        </Dropdown.Item>
+        <Dropdown.Item
+          className={styles.DropdownItem}
+          onClick={handleDelete}
+          aria-label="delete"
+        >
+          <i className="fas fa-trash" />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
