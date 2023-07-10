@@ -32,7 +32,11 @@ function ProjectPage() {
   return (
     <Container className={appStyles.Content}>
       <Row className="h-100">
+        <Col md={12} lg={12} >
       <Project {...project.results[0]} setProjects={setProject} projectPage />
+      </Col>
+        </Row>
+        <Row className="h-100">
         <Col>
           <div className="bg-light p-2">
             <h2>To Do</h2>

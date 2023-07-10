@@ -31,7 +31,7 @@ const Project = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/projects/${id}/`);
-      history.goBack();
+      history.push("/");
     } catch (err) {
       console.log(err);
     }

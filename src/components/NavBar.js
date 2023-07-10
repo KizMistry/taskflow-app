@@ -98,7 +98,6 @@ const NavBar = () => {
           <Nav className="mr-auto">
             <NavLink
               className={styles.NavLink}
-              activeClassName={styles.Active}
               to="/"
             >
               <i className="fas fa-home"></i>Home
