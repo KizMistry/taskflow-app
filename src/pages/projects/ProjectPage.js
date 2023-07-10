@@ -11,7 +11,7 @@ import Project from "./Project";
 
 import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Note from "../notes/Note";
+import Note from "../../components/Note";
 
 function ProjectPage() {
   const { id } = useParams();
