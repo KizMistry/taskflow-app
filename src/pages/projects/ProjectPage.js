@@ -23,9 +23,9 @@ function ProjectPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: project }, {data: notes}] = await Promise.all([
+        const [{ data: project }, { data: notes }] = await Promise.all([
           axiosReq.get(`/projects/${id}`),
-          axiosReq.get(`/notes/?project=${id}`)
+          axiosReq.get(`/notes/?project=${id}`),
         ]);
         setProject({ results: [project] });
         setNotes(notes);
@@ -58,8 +58,13 @@ function ProjectPage() {
               "Notes"
             ) : null}
             {notes.results.length ? (
-              notes.results.map(note => (
-                <Note key={note.id} {...note} />
+              notes.results.map((note) => (
+                <Note
+                  key={note.id}
+                  {...note}
+                  setProject={setProject}
+                  setNotes={setNotes}
+                />
               ))
             ) : currentUser ? (
               <span>No notes</span>
