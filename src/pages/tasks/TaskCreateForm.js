@@ -70,8 +70,8 @@ function TaskCreateForm() {
     }
 
     try {
-      await axiosReq.post("/tasks/", formData);
-      history.goBack();
+      const { data } = await axiosReq.post("/tasks/", formData);
+      history.push(`/tasks/${data.id}`);
     } catch (err) {
       console.log(err.response);
       if (err.response?.status !== 401) {
