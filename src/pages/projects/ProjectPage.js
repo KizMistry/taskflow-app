@@ -8,10 +8,13 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Project from "./Project";
+import styles from "../../styles/NavBar.module.css"
 
 import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Note from "../../components/Note";
+import { Link } from "react-router-dom/cjs/react-router-dom";
+
 
 function ProjectPage() {
   const { id } = useParams();
@@ -19,6 +22,7 @@ function ProjectPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [notes, setNotes] = useState({ results: [] });
+
 
   useEffect(() => {
     const handleMount = async () => {
@@ -73,6 +77,11 @@ function ProjectPage() {
             )}
           </Container>
         </Col>
+      </Row>
+      <Row className="h-100">
+      <Link to={`/tasks/create?project=${id}`} className={styles.NavLink}>
+          <i className="fas fa-plus-square"></i>Add Task
+        </Link>
       </Row>
       <Row className="h-100">
         <Col>
