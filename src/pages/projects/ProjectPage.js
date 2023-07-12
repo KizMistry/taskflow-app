@@ -8,12 +8,11 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Project from "./Project";
-import styles from "../../styles/NavBar.module.css"
 
 import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Note from "../../components/Note";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import Task from "../tasks/Task";
 
 
 function ProjectPage() {
@@ -22,23 +21,28 @@ function ProjectPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [notes, setNotes] = useState({ results: [] });
+  const [tasks, setTasks] = useState({ results: [] });
 
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: project }, { data: notes }] = await Promise.all([
+        const [{ data: project }, { data: notes }, { data: tasks }] = await Promise.all([
           axiosReq.get(`/projects/${id}`),
           axiosReq.get(`/notes/?project=${id}`),
+          axiosReq.get(`/tasks/?project=${id}`),
         ]);
         setProject({ results: [project] });
         setNotes(notes);
+        setTasks(tasks);
       } catch (err) {
         console.log(err);
       }
     };
     handleMount();
   }, [id]);
+  console.log(tasks)
+  console.log(tasks.results[3])
 
   return (
     <>
@@ -79,36 +83,20 @@ function ProjectPage() {
         </Col>
       </Row>
       <Row className="h-100">
-      <Link to={`/tasks/create?project=${id}`} className={styles.NavLink}>
-          <i className="fas fa-plus-square"></i>Add Task
-        </Link>
-      </Row>
-      <Row className="h-100">
         <Col>
           <div className="bg-light p-2">
-            <h2>To Do</h2>
-
-            <div key="task.id" className="card mb-2" draggable>
-              <div className="card-body">task.title</div>
-            </div>
-          </div>
-        </Col>
-        <Col>
-          <div className="bg-light p-2">
-            <h2>In Progress</h2>
-
-            <div key="{task.id}" className="card mb-2" draggable>
-              <div className="card-body">task.title</div>
-            </div>
-          </div>
-        </Col>
-        <Col>
-          <div className="bg-light p-2">
-            <h2>Done</h2>
-
-            <div key="{task.id}" className="card mb-2" draggable>
-              <div className="card-body">task.title</div>
-            </div>
+            {tasks.results.length ? (
+              tasks.results.map((task) => (
+                <Task
+              task={task}
+              />
+              ))
+              
+            
+            ) : (
+              <span>No tasks yet</span>
+            )}
+           
           </div>
         </Col>
       </Row>
