@@ -13,7 +13,7 @@ import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Note from "../../components/Note";
 import Task from "../tasks/Task";
-
+import { NavLink } from "react-bootstrap";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -23,15 +23,15 @@ function ProjectPage() {
   const [notes, setNotes] = useState({ results: [] });
   const [tasks, setTasks] = useState({ results: [] });
 
-
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: project }, { data: notes }, { data: tasks }] = await Promise.all([
-          axiosReq.get(`/projects/${id}`),
-          axiosReq.get(`/notes/?project=${id}`),
-          axiosReq.get(`/tasks/?project=${id}`),
-        ]);
+        const [{ data: project }, { data: notes }, { data: tasks }] =
+          await Promise.all([
+            axiosReq.get(`/projects/${id}`),
+            axiosReq.get(`/notes/?project=${id}`),
+            axiosReq.get(`/tasks/?project=${id}`),
+          ]);
         setProject({ results: [project] });
         setNotes(notes);
         setTasks(tasks);
@@ -41,8 +41,8 @@ function ProjectPage() {
     };
     handleMount();
   }, [id]);
-  console.log(tasks)
-  console.log(tasks.results[3])
+  // console.log(tasks);
+  // console.log(tasks.results[3]);
 
   return (
     <>
@@ -82,21 +82,58 @@ function ProjectPage() {
           </Container>
         </Col>
       </Row>
+      <Row>
+        <NavLink to="/tasks/create">
+          <i className="fas fa-plus-square"></i>Add Task
+        </NavLink>
+      </Row>
+
       <Row className="h-100">
         <Col>
           <div className="bg-light p-2">
-            {tasks.results.length ? (
-              tasks.results.map((task) => (
-                <Task
-              task={task}
-              />
-              ))
-              
-            
-            ) : (
-              <span>No tasks yet</span>
-            )}
-           
+            <Col>
+            <div className="card-body">
+                <h2>To Do</h2>
+                <div className="card mb-2" >
+                    {tasks.results.length ? (
+                      tasks.results
+                        .filter((task) => task.task_status === "todo")
+                        .map((task) => <Task key={task.id} task={task} />)
+                    ) : (
+                      <span>Add Task</span>
+                    )}
+                </div>
+              </div>
+            </Col>
+            <Col>
+            <div className="card-body">
+                <h2>In Progress</h2>
+                <div className="card mb-2" >
+                    {tasks.results.length ? (
+                      tasks.results
+                        .filter((task) => task.task_status === "in progress")
+                        .map((task) => <Task key={task.id} task={task} />)
+                    ) : (
+                      <span>Add Task</span>
+                    )}
+                    </div>
+              </div>
+            </Col>
+            <Col>
+            <div className="card-body">
+
+                <h2>Completed</h2>
+                <div className="card mb-2" >
+                    {tasks.results.length ? (
+                      tasks.results
+                        .filter((task) => task.task_status === "completed")
+                        .map((task) => <Task key={task.id} task={task} />)
+                    ) : (
+                      <span>Add Task</span>
+                    )}
+                  </div>
+                  </div>
+            </Col>
           </div>
         </Col>
       </Row>
