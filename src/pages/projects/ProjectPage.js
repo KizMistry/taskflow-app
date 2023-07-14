@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Project from "./Project";
 
@@ -13,7 +13,6 @@ import NoteCreateForm from "../notes/NoteCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Note from "../../components/Note";
 import Task from "../tasks/Task";
-import { NavLink } from "react-bootstrap";
 
 function ProjectPage() {
   const { id } = useParams();
@@ -83,9 +82,9 @@ function ProjectPage() {
         </Col>
       </Row>
       <Row>
-        <NavLink to="/tasks/create">
+        <Link to={`${id}/tasks/create`}>
           <i className="fas fa-plus-square"></i>Add Task
-        </NavLink>
+        </Link>
       </Row>
 
       <Row className="h-100">

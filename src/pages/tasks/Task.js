@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../../styles/Task.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, NavLink } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Task = (props) => {
   const {
@@ -19,29 +20,23 @@ const Task = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-
   const taskCard = (
     <>
-    <NavLink to={`/tasks/${task.id}`}>
-      <Card >
-        <Card.Body>
-          <Card.Title>{task.task}</Card.Title>
-          <Card.Text>{task.description}</Card.Text>
-          <Card.Text>Priority: {task.task_priority}</Card.Text>
-
-          <Card.Text>Notes: {task.notes_count}</Card.Text>
-          <Card.Text>File: {task.file}</Card.Text>
-        </Card.Body>
-      </Card>
-      </NavLink>
+      <Link to={`/tasks/${task.id}`}>
+        <Card>
+          <Card.Body>
+            <Card.Title>{task.task}</Card.Title>
+            <Card.Text>{task.description}</Card.Text>
+            <Card.Text>Priority: {task.task_priority}</Card.Text>
+            <Card.Text>Notes: {task.notes_count}</Card.Text>
+            <Card.Text>File: {task.file}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Link>
     </>
   );
 
-  return (
-    <>
-      {currentUser && taskCard}
-    </>
-  );
+  return <>{currentUser && taskCard}</>;
 };
 
 export default Task;
