@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProjectsPage.module.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Project from "./Project";
 
@@ -15,8 +15,10 @@ import NoResults from "../../assets/no-results.png";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ProjectsPage({ message, filter = "" }) {
+  const currentUser = useCurrentUser();
   const [projects, setProjects] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -44,7 +46,8 @@ function ProjectsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname]);
 
-  return (
+
+  const loggedInPage = (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={12}>
         <i className={`fas fa-search ${styles.searchIcon}`} />
@@ -93,6 +96,20 @@ function ProjectsPage({ message, filter = "" }) {
         )}
       </Col>
     </Row>
+  )
+
+  const loggedOutPage = (
+    <Row className="h-100">
+      <Col className="py-2 p-0 p-lg-2" lg={12}>
+        <Link to="/signin"> Log in to get started </Link>
+      </Col>
+      </Row>
+  )
+  return (
+<>
+    {currentUser ? loggedInPage : loggedOutPage}
+    
+    </>
   );
 }
 
