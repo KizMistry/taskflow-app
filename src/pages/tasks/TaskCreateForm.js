@@ -1,28 +1,24 @@
 import React, { useRef, useState } from "react";
-
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+import { Form, Button, Row, Col, Container, Alert, Image } from "react-bootstrap";
+import { useLocation, useHistory } from "react-router-dom";
 
 import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
-import { Alert, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
-
-import { useLocation, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 function TaskCreateForm() {
   const [errors, setErrors] = useState();
-
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const projectId = queryParams.get("project");
+  const history = useHistory();
+  
+  
+  const projectId = useParams();
+  console.log(projectId)
 
   const [taskData, setTaskData] = useState({
     task: "",
@@ -34,7 +30,6 @@ function TaskCreateForm() {
   const { task, description, file, task_priority, task_status } = taskData;
 
   const fileInput = useRef(null);
-  const history = useHistory();
 
   const handleChangeFile = (event) => {
     if (event.target.files.length) {
@@ -59,7 +54,7 @@ function TaskCreateForm() {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("project", projectId);
+    formData.append("project", projectId.id);
     formData.append("task", task);
     formData.append("description", description);
     formData.append("task_priority", task_priority);
@@ -71,7 +66,8 @@ function TaskCreateForm() {
 
     try {
       const { data } = await axiosReq.post("/tasks/", formData);
-      history.push(`/tasks/${data.id}`);
+      history.goBack()
+      // history.push(`/tasks/${data.id}`);
     } catch (err) {
       console.log(err.response);
       if (err.response?.status !== 401) {
@@ -91,7 +87,7 @@ function TaskCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.title?.map((message, idx) => (
+      {errors?.task?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
