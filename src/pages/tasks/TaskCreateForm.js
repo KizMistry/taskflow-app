@@ -1,13 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Row, Col, Container, Alert, Image } from "react-bootstrap";
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
-import { Link } from "react-router-dom";
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
@@ -65,9 +64,8 @@ function TaskCreateForm() {
     }
 
     try {
-      const { data } = await axiosReq.post("/tasks/", formData);
+      await axiosReq.post("/tasks/", formData);
       history.goBack()
-      // history.push(`/tasks/${data.id}`);
     } catch (err) {
       console.log(err.response);
       if (err.response?.status !== 401) {

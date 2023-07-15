@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../../styles/Task.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";

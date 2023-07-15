@@ -3,7 +3,6 @@ import styles from "../../styles/Project.module.css";
 import { Card, Media } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import Avatar from "../../components/Avatar";
 import { OptionDropdown } from "../../components/OptionDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 

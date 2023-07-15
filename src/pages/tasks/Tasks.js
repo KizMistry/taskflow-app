@@ -69,7 +69,7 @@ const Tasks = () => {
                     ))}
                   </InfiniteScroll>
                 ) : (
-                  <span>No task to display</span>
+                  <span>No tasks to display</span>
                 )}
               </>
             ) : (

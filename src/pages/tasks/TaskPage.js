@@ -13,16 +13,17 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 // import NoteCreateForm from "../notes/NoteCreateForm";
 // import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // import Note from "../../components/Note";
-import Task from "../tasks/Task";
-import { Card, Media } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { OptionDropdown } from "../../components/OptionDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function TaskPage() {
   const { id } = useParams();
-  // const currentUser = useCurrentUser();
+  const currentUser = useCurrentUser();
   const [notes, setNotes] = useState({ results: [] });
   const [task, setTask] = useState({});
+  const is_owner = currentUser?.username === task.owner;
+  const history = useHistory();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -40,12 +41,6 @@ function TaskPage() {
     handleMount();
   }, [id]);
 
-  console.log(task);
-  console.log(setTask);
-
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === task.owner;
-  const history = useHistory();
 
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
