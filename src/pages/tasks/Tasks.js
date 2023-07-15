@@ -38,6 +38,14 @@ const Tasks = () => {
                 <h2>Your Tasks To Do</h2>
                 <div className="card mb-2">
                   {tasks.results.length ? (
+                    <InfiniteScroll
+                    
+                    dataLength={tasks.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!tasks.next}
+                    next={() => fetchMoreData(tasks, setTasks)}
+                    height={400}
+                    >{
                     tasks.results
                       .filter((task) => task.task_status === "todo")
                       .map((task) => (
@@ -57,7 +65,7 @@ const Tasks = () => {
                             </Card>
                           </Link>
                         </>
-                      ))
+                      ))}</InfiniteScroll>
                   ) : (
                     <span>Add Task</span>
                   )}
@@ -111,6 +119,14 @@ const Tasks = () => {
                 <h2>Your Completed Tasks</h2>
                 <div className="card mb-2">
                   {tasks.results.length ? (
+                    <InfiniteScroll
+                    
+                    dataLength={tasks.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!tasks.next}
+                    next={() => fetchMoreData(tasks, setTasks)}
+                    height={400}
+                    >{
                     tasks.results
                       .filter((task) => task.task_status === "completed")
                       .map((task) => (
@@ -130,7 +146,7 @@ const Tasks = () => {
                             </Card>
                           </Link>
                         </>
-                      ))
+                      ))} </InfiniteScroll>
                   ) : (
                     <span>Add Task</span>
                   )}

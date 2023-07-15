@@ -1,13 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Form, Button, Row, Col, Container, Alert, Image } from "react-bootstrap";
-import { useLocation, useHistory } from "react-router-dom";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Container,
+  Alert,
+  Image,
+} from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
-import { Link } from "react-router-dom";
 import Upload from "../../assets/upload.png";
 import Asset from "../../components/Asset";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
@@ -25,25 +32,41 @@ function TaskEditForm() {
   const { task, description, file, task_priority, task_status } = taskData;
 
   const history = useHistory();
-  const {id} = useParams();
-  console.log(id)
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/tasks/${id}`);
-        const { task, description, file, task_priority, task_status, is_owner } = data;
-
-        is_owner ? setTaskData({ task, description, file, task_priority, task_status }) : history.push("/");
+        const {
+          project,
+          task,
+          description,
+          file,
+          task_priority,
+          task_status,
+          is_owner,
+        } = data;
+        console.log(data.project);
+        is_owner
+          ? setTaskData({
+              project,
+              task,
+              description,
+              file,
+              task_priority,
+              task_status,
+            })
+          : history.push("/");
       } catch (err) {
         console.log(err);
       }
     };
     handleMount();
-    console.log(setTaskData)
   }, [history, id]);
 
-  
+  console.log(taskData.project);
 
   const fileInput = useRef(null);
 
@@ -81,8 +104,8 @@ function TaskEditForm() {
 
     try {
       await axiosReq.put(`/tasks/${id}`, formData);
-      history.goBack()
-      // history.push(`/tasks/${id}`);
+      history.push(`/projects/${taskData.project}`);
+      // history.goBack();
     } catch (err) {
       console.log(err.response);
       if (err.response?.status !== 401) {
