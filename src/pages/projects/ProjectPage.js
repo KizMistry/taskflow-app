@@ -52,7 +52,7 @@ function ProjectPage() {
             setProjects={setProject}
             projectPage
           />
-          <Container className={appStyles.Content}>
+          {/* <Container className={appStyles.Content}>
             {currentUser ? (
               <NoteCreateForm
                 profile_id={currentUser.profile_id}
@@ -78,7 +78,7 @@ function ProjectPage() {
             ) : (
               <span>No notes yet</span>
             )}
-          </Container>
+          </Container> */}
         </Col>
       </Row>
       <Row>

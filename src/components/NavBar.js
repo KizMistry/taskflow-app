@@ -54,12 +54,12 @@ const NavBar = () => {
       >
         <i className="fas fa-sign-out-alt"></i>Sign Out
       </NavLink>
-      <NavLink
+      {/* <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-      </NavLink>
+      </NavLink> */}
     </>
   );
   const loggedOutIcons = (
@@ -96,12 +96,12 @@ const NavBar = () => {
         aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <NavLink
+            {/* <NavLink
               className={styles.NavLink}
               to="/"
             >
               <i className="fas fa-home"></i>Home
-            </NavLink>
+            </NavLink> */}
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>

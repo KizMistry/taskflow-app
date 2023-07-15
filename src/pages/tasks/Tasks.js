@@ -3,6 +3,9 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 const Tasks = () => {
   const currentUser = useCurrentUser();
@@ -14,7 +17,7 @@ const Tasks = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/tasks/?owner=${owner}`);
+        const { data } = await axiosReq.get(`/tasks`);
         setTasks(data);
       } catch (err) {
         console.log(err);
@@ -23,36 +26,10 @@ const Tasks = () => {
     handleMount();
     console.log(currentUser);
   }, [owner]);
-  console.log(tasks.results);
-
-  const taskCard = (
-    <>
-      <Link to={`/tasks/${tasks.id}`}>
-        <Card>
-          <Card.Body>
-            <Card.Title>Task: {tasks.task}</Card.Title>
-            <Card.Text>Description: {tasks.description}</Card.Text>
-            <Card.Text>Priority: {tasks.task_priority}</Card.Text>
-            <Card.Text>Notes: {tasks.notes_count}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Link>
-    </>
-  );
+  console.log(tasks);
 
   return (
     <>
-      {/* {tasks.results.length ? (
-        tasks.results
-          .map((task) => (
-            <>
-    
-            </>
-          ))
-          
-      ) : (
-        <span>Add Task</span>
-      )} */}
       <Row className="h-100">
         <Col>
           <div className="bg-light p-2">
@@ -65,7 +42,7 @@ const Tasks = () => {
                       .filter((task) => task.task_status === "todo")
                       .map((task) => (
                         <>
-                          <Link to={`/tasks/${tasks.id}`}>
+                          <Link to={`/tasks/${task.id}`}>
                             <Card>
                               <Card.Body>
                                 <Card.Title>Task: {task.task}</Card.Title>
@@ -92,26 +69,37 @@ const Tasks = () => {
                 <h2>Your Tasks In Progress</h2>
                 <div className="card mb-2">
                   {tasks.results.length ? (
-                    tasks.results
-                      .filter((task) => task.task_status === "in progress")
-                      .map((task) => (
-                        <>
-                          <Link to={`/tasks/${tasks.id}`}>
-                            <Card>
-                              <Card.Body>
-                                <Card.Title>Task: {task.task}</Card.Title>
-                                <Card.Text>
-                                  Description: {task.description}
-                                </Card.Text>
-                                <Card.Text>
-                                  Priority: {task.task_priority}
-                                </Card.Text>
-                                <Card.Text>Notes: {task.notes_count}</Card.Text>
-                              </Card.Body>
-                            </Card>
-                          </Link>
-                        </>
-                      ))
+                    <InfiniteScroll
+                    
+                    dataLength={tasks.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!tasks.next}
+                    next={() => fetchMoreData(tasks, setTasks)}
+                    height={400}
+                    >
+                    {
+                      tasks.results
+                        .filter((task) => task.task_status === "in progress")
+                        .map((task) => (
+                          <>
+                            <Link to={`/tasks/${task.id}`}>
+                              <Card>
+                                <Card.Body>
+                                  <Card.Title>Task: {task.task}</Card.Title>
+                                  <Card.Text>
+                                    Description: {task.description}
+                                  </Card.Text>
+                                  <Card.Text>
+                                    Priority: {task.task_priority}
+                                  </Card.Text>
+                                  <Card.Text>Notes: {task.notes_count}</Card.Text>
+                                </Card.Body>
+                              </Card>
+                            </Link>
+                          </>
+                        ))
+                      }
+                    </InfiniteScroll>
                   ) : (
                     <span>Add Task</span>
                   )}
@@ -127,7 +115,7 @@ const Tasks = () => {
                       .filter((task) => task.task_status === "completed")
                       .map((task) => (
                         <>
-                          <Link to={`/tasks/${tasks.id}`}>
+                          <Link to={`/tasks/${task.id}`}>
                             <Card>
                               <Card.Body>
                                 <Card.Title>Task: {task.task}</Card.Title>

@@ -40,10 +40,10 @@ const Project = (props) => {
     <Card className={styles.Project}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
+          {/* <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
-          </Link>
+          </Link> */}
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
             {is_owner && projectPage && (
