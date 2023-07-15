@@ -13,6 +13,7 @@ import ProjectEditForm from "./pages/projects/ProjectEditForm";
 import TaskCreateForm from "./pages/tasks/TaskCreateForm";
 import TaskPage from "./pages/tasks/TaskPage";
 import Tasks from "./pages/tasks/Tasks";
+import TaskEditForm from "./pages/tasks/TaskEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/tasks" render={() => <Tasks />} />
           <Route exact path="/projects/:id/tasks/create" render={() => <TaskCreateForm />} />
           <Route exact path="/tasks/:id" render={() => <TaskPage />} />
+          <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
