@@ -52,7 +52,7 @@ function TaskPage() {
   };
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/tasks/${id}/`);
+      await axiosRes.delete(`/tasks/${id}`);
       history.push("/");
     } catch (err) {
       console.log(err);
