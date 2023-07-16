@@ -24,7 +24,6 @@ function ProjectPage() {
   const [tasks, setTasks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
-
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -62,8 +61,10 @@ function ProjectPage() {
   };
 
   const TaskSection = ({ title, taskStatus, tasks, hasLoaded }) => {
-    const filteredTasks = tasks.results.filter((task) => task.task_status === taskStatus);
-  
+    const filteredTasks = tasks.results.filter(
+      (task) => task.task_status === taskStatus
+    );
+
     return (
       <Col>
         <div className="card-body">
@@ -116,30 +117,30 @@ function ProjectPage() {
       </Row>
 
       <Row className="h-100">
-      <Col>
-        <div className="bg-light p-2">
-          <TaskSection
-            title="Your Tasks To Do"
-            taskStatus="todo"
-            tasks={tasks}
-            hasLoaded={hasLoaded}
-          />
+        <Col>
+          <div className="bg-light p-2">
+            <TaskSection
+              title="Your Tasks To Do"
+              taskStatus="todo"
+              tasks={tasks}
+              hasLoaded={hasLoaded}
+            />
 
-          <TaskSection
-            title="Your Tasks In Progress"
-            taskStatus="in progress"
-            tasks={tasks}
-            hasLoaded={hasLoaded}
-          />
+            <TaskSection
+              title="Your Tasks In Progress"
+              taskStatus="in progress"
+              tasks={tasks}
+              hasLoaded={hasLoaded}
+            />
 
-          <TaskSection
-            title="Your Completed Tasks"
-            taskStatus="completed"
-            tasks={tasks}
-            hasLoaded={hasLoaded}
-          />
-        </div>
-      </Col>
+            <TaskSection
+              title="Your Completed Tasks"
+              taskStatus="completed"
+              tasks={tasks}
+              hasLoaded={hasLoaded}
+            />
+          </div>
+        </Col>
         {/* <Col>
           <div className="bg-light p-2">
             <Col>

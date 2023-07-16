@@ -109,7 +109,11 @@ function ProjectsPage({ message, filter = "" }) {
       ) : (
         <>
           <Container className={appStyles.Content}>
-            <div>Log in to get started</div>
+            <div>
+              <p>Welcome to TaskFlow! </p>
+              <p> Create your project and manage your tasks.</p>
+              <p>Sign in to get started</p>
+            </div>
           </Container>
         </>
       )}

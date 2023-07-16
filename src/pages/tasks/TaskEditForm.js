@@ -1,22 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  Container,
-  Alert,
-  Image,
-} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
 
-import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
-import Upload from "../../assets/upload.png";
-import Asset from "../../components/Asset";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 function TaskEditForm() {
@@ -25,11 +19,10 @@ function TaskEditForm() {
   const [taskData, setTaskData] = useState({
     task: "",
     description: "",
-    file: "",
     task_priority: "low",
     task_status: "todo",
   });
-  const { task, description, file, task_priority, task_status } = taskData;
+  const { task, description, task_priority, task_status } = taskData;
 
   const history = useHistory();
   const { id } = useParams();
@@ -42,7 +35,6 @@ function TaskEditForm() {
           project,
           task,
           description,
-          file,
           task_priority,
           task_status,
           is_owner,
@@ -52,7 +44,6 @@ function TaskEditForm() {
               project,
               task,
               description,
-              file,
               task_priority,
               task_status,
             })
@@ -63,21 +54,6 @@ function TaskEditForm() {
     };
     handleMount();
   }, [history, id]);
-
-
-  const fileInput = useRef(null);
-
-  const handleChangeFile = (event) => {
-    if (event.target.files.length) {
-      const selectedFile = event.target.files[0];
-      URL.revokeObjectURL(file);
-      setTaskData({
-        ...taskData,
-        file: URL.createObjectURL(selectedFile),
-        selectedFile: selectedFile,
-      });
-    }
-  };
 
   const handleChange = (event) => {
     setTaskData({
@@ -94,10 +70,6 @@ function TaskEditForm() {
     formData.append("description", description);
     formData.append("task_priority", task_priority);
     formData.append("task_status", task_status);
-
-    if (fileInput.current.files.length > 0) {
-      formData.append("file", fileInput.current.files[0]);
-    }
 
     try {
       await axiosReq.put(`/tasks/${id}`, formData);
@@ -196,48 +168,6 @@ function TaskEditForm() {
         <Col md={12} lg={12} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
-        <Container
-          className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-        >
-          <Form.Group className="text-center">
-            {file ? (
-              <>
-                <figure>
-                  <Image className={appStyles.Image} src={file} rounded />
-                </figure>
-                <div>
-                  <Form.Label
-                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                    htmlFor="file-upload"
-                  >
-                    Change the file
-                  </Form.Label>
-                </div>
-              </>
-            ) : (
-              <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="file-upload"
-              >
-                <Asset src={Upload} message="Click or tap to upload a file" />
-              </Form.Label>
-            )}
-
-            <Form.File
-              id="file-upload"
-              accept="file/*"
-              onChange={handleChangeFile}
-              ref={fileInput}
-            />
-          </Form.Group>
-          {errors?.file?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-
-          <div className="d-md-none">{textFields}</div>
-        </Container>
       </Row>
     </Form>
   );

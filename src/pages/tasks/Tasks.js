@@ -8,8 +8,6 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import appStyles from "../../App.module.css";
 
-
-
 const Tasks = () => {
   const currentUser = useCurrentUser();
   const owner = currentUser?.username;
@@ -45,10 +43,12 @@ const Tasks = () => {
       </Link>
     );
   };
-  
+
   const TaskSection = ({ title, taskStatus, tasks, hasLoaded }) => {
-    const filteredTasks = tasks.results.filter((task) => task.task_status === taskStatus);
-  
+    const filteredTasks = tasks.results.filter(
+      (task) => task.task_status === taskStatus
+    );
+
     return (
       <Col>
         <div className="card-body">
@@ -82,7 +82,6 @@ const Tasks = () => {
       </Col>
     );
   };
-  
 
   return (
     <Row className="h-100">

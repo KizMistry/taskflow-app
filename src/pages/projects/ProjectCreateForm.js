@@ -6,14 +6,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-import styles from "../../styles/ProjectCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Alert, Image } from "react-bootstrap";
-import Upload from "../../assets/upload.png";
-import Asset from "../../components/Asset";
+import Alert from "react-bootstrap/Alert";
 
 function ProjectCreateForm() {
   const [errors, setErrors] = useState({});
@@ -21,22 +18,12 @@ function ProjectCreateForm() {
   const [projectData, setProjectData] = useState({
     title: "",
     description: "",
-    file: "",
   });
-  const { title, description, file } = projectData;
+  const { title, description } = projectData;
 
-  const fileInput = useRef(null);
   const history = useHistory();
 
-  const handleChangeFile = (event) => {
-    if (event.target.files.length) {
-      URL.revokeObjectURL(file);
-      setProjectData({
-        ...projectData,
-        file: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-  };
+
 
   const handleChange = (event) => {
     setProjectData({
@@ -51,7 +38,6 @@ function ProjectCreateForm() {
 
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("file", fileInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/projects/", formData);
@@ -114,48 +100,7 @@ function ProjectCreateForm() {
         <Col md={12} lg={12} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
-        <Container
-          className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-        >
-          <Form.Group className="text-center">
-            {file ? (
-              <>
-                <figure>
-                  <Image className={appStyles.Image} src={file} rounded />
-                </figure>
-                <div>
-                  <Form.Label
-                    className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                    htmlFor="file-upload"
-                  >
-                    Change the file
-                  </Form.Label>
-                </div>
-              </>
-            ) : (
-              <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="file-upload"
-              >
-                <Asset src={Upload} message="Click or tap to upload a file" />
-              </Form.Label>
-            )}
 
-            <Form.File
-              id="file-upload"
-              accept="file/*"
-              onChange={handleChangeFile}
-              ref={fileInput}
-            />
-          </Form.Group>
-          {errors?.image?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
-
-          <div className="d-md-none">{textFields}</div>
-        </Container>
       </Row>
     </Form>
   );

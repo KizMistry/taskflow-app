@@ -2,7 +2,6 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import styles from "../styles/OptionDropdown.module.css";
 
-
 const Options = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -35,7 +34,7 @@ export const OptionDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash"/>
+          <i className="fas fa-trash" />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

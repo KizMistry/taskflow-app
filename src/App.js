@@ -28,9 +28,10 @@ function App() {
             exact
             path="/"
             render={() => (
-              <ProjectsPage 
-              message="Create a new Project to get started."
-              filter={`owner__project_owner=${profile_id}&ordering=-created_at&`} />
+              <ProjectsPage
+                message="Create a new Project to get started."
+                filter={`owner__project_owner=${profile_id}&ordering=-created_at&`}
+              />
             )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
@@ -42,9 +43,17 @@ function App() {
           />
           <Route exact path="/projects" render={() => <ProjectsPage />} />
           <Route exact path="/projects/:id" render={() => <ProjectPage />} />
-          <Route exact path="/projects/:id/edit" render={() => <ProjectEditForm />} />
+          <Route
+            exact
+            path="/projects/:id/edit"
+            render={() => <ProjectEditForm />}
+          />
           <Route exact path="/tasks" render={() => <Tasks />} />
-          <Route exact path="/projects/:id/tasks/create" render={() => <TaskCreateForm />} />
+          <Route
+            exact
+            path="/projects/:id/tasks/create"
+            render={() => <TaskCreateForm />}
+          />
           <Route exact path="/tasks/:id" render={() => <TaskPage />} />
           <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import styles from "../../styles/Project.module.css"
+import styles from "../../styles/Project.module.css";
 
 import {
   useHistory,
@@ -38,7 +38,6 @@ function TaskPage() {
     handleMount();
   }, [id]);
 
-
   const handleEdit = () => {
     history.push(`/tasks/${id}/edit`);
   };
@@ -57,14 +56,14 @@ function TaskPage() {
         <Col md={12} lg={12}>
           <Card className={styles.Project}>
             <Card.Body>
-                <div className="d-flex align-items-center">
-                  {is_owner && (
-                    <OptionDropdown
-                      handleEdit={handleEdit}
-                      handleDelete={handleDelete}
-                    />
-                  )}
-                </div>
+              <div className="d-flex align-items-center">
+                {is_owner && (
+                  <OptionDropdown
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
+                  />
+                )}
+              </div>
             </Card.Body>
 
             <Card.Body>

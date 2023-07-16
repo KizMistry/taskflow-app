@@ -1,24 +1,24 @@
 .Project {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Project figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .Tasks {
-    color: #f85032;
-  }
-  
-  .Tasks:hover {
-    color: #2142b2;
-  }
-  
-  .TasksOutline:hover {
-    color: #f85032;
-  }
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Project figure,
+h5 {
+  margin: 0 0;
+}
+
+.Tasks {
+  color: #f85032;
+}
+
+.Tasks:hover {
+  color: #2142b2;
+}
+
+.TasksOutline:hover {
+  color: #f85032;
+}
