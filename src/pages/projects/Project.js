@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/Project.module.css";
-import { Card, Media } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
+import Card from "react-bootstrap/Card";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { OptionDropdown } from "../../components/OptionDropdown";
@@ -30,7 +31,7 @@ const Project = (props) => {
       await axiosRes.delete(`/projects/${id}/`);
       history.push("/");
     } catch (err) {
-      // // console.log(err);
+      // console.log(err);
     }
   };
   return (

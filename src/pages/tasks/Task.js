@@ -1,7 +1,7 @@
 import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Link from "react-router-dom/Link";
 
 const Task = (props) => {
   const {

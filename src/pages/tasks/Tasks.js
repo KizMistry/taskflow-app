@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import Asset from "../../components/Asset";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import appStyles from "../../App.module.css";
 
