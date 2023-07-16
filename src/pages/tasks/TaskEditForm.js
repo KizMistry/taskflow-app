@@ -49,7 +49,7 @@ function TaskEditForm() {
             })
           : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     handleMount();
@@ -75,7 +75,7 @@ function TaskEditForm() {
       await axiosReq.put(`/tasks/${id}`, formData);
       history.push(`/projects/${taskData.project}`);
     } catch (err) {
-      console.log(err.response);
+      // console.log(err.response);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

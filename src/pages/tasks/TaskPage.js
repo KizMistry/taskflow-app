@@ -32,7 +32,7 @@ function TaskPage() {
         setTask(task);
         setNotes(notes);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     handleMount();
@@ -46,7 +46,7 @@ function TaskPage() {
       await axiosRes.delete(`/tasks/${id}`);
       history.push("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -23,8 +23,6 @@ function ProjectCreateForm() {
 
   const history = useHistory();
 
-
-
   const handleChange = (event) => {
     setProjectData({
       ...projectData,
@@ -43,7 +41,7 @@ function ProjectCreateForm() {
       const { data } = await axiosReq.post("/projects/", formData);
       history.push(`/projects/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -100,7 +98,6 @@ function ProjectCreateForm() {
         <Col md={12} lg={12} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
-
       </Row>
     </Form>
   );

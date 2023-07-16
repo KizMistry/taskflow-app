@@ -5,19 +5,10 @@ import { Link } from "react-router-dom";
 
 const Task = (props) => {
   const {
-    id,
-    owner,
-    notes_count,
     task,
-    description,
-    task_priority,
-    task_status,
-    file,
-    setTasks,
   } = props;
 
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
 
   const taskCard = (
     <>
@@ -27,8 +18,7 @@ const Task = (props) => {
             <Card.Title>{task.task}</Card.Title>
             <Card.Text>{task.description}</Card.Text>
             <Card.Text>Priority: {task.task_priority}</Card.Text>
-            {/* <Card.Text>Notes: {task.notes_count}</Card.Text>
-            <Card.Text>File: {task.file}</Card.Text> */}
+            {/* <Card.Text>Notes: {task.notes_count}</Card.Text>*/}
           </Card.Body>
         </Card>
       </Link>

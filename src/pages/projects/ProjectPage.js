@@ -9,7 +9,6 @@ import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Project from "./Project";
 
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
@@ -18,8 +17,6 @@ import { Card } from "react-bootstrap";
 function ProjectPage() {
   const { id } = useParams();
   const [project, setProject] = useState({ results: [] });
-  const currentUser = useCurrentUser();
-  const profile_image = currentUser?.profile_image;
   const [notes, setNotes] = useState({ results: [] });
   const [tasks, setTasks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -38,7 +35,7 @@ function ProjectPage() {
         setTasks(tasks);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     setHasLoaded(false);
@@ -141,53 +138,6 @@ function ProjectPage() {
             />
           </div>
         </Col>
-        {/* <Col>
-          <div className="bg-light p-2">
-            <Col>
-            <div className="card-body">
-                <h2>To Do</h2>
-                <div className="card mb-2" >
-                    {tasks.results.length ? (
-                      tasks.results
-                        .filter((task) => task.task_status === "todo")
-                        .map((task) => <Task key={task.id} task={task} />)
-                    ) : (
-                      <span>Currently no tasks to be started</span>
-                    )}
-                </div>
-              </div>
-            </Col>
-            <Col>
-            <div className="card-body">
-                <h2>In Progress</h2>
-                <div className="card mb-2" >
-                    {tasks.results.length ? (
-                      tasks.results
-                        .filter((task) => task.task_status === "in progress")
-                        .map((task) => <Task key={task.id} task={task} />)
-                    ) : (
-                      <span>Currently no tasks in progress</span>
-                    )}
-                    </div>
-              </div>
-            </Col>
-            <Col>
-            <div className="card-body">
-
-                <h2>Completed</h2>
-                <div className="card mb-2" >
-                    {tasks.results.length ? (
-                      tasks.results
-                        .filter((task) => task.task_status === "completed")
-                        .map((task) => <Task key={task.id} task={task} />)
-                    ) : (
-                      <span>No tasks have yet been completed</span>
-                    )}
-                  </div>
-                  </div>
-            </Col>
-          </div>
-        </Col> */}
       </Row>
     </>
   );

@@ -68,7 +68,7 @@ function TaskCreateForm() {
       await axiosReq.post("/tasks/", formData);
       history.goBack()
     } catch (err) {
-      console.log(err.response);
+      // console.log(err.response);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
