@@ -102,7 +102,6 @@ function TaskEditForm() {
     try {
       await axiosReq.put(`/tasks/${id}`, formData);
       history.push(`/projects/${taskData.project}`);
-      // history.goBack();
     } catch (err) {
       console.log(err.response);
       if (err.response?.status !== 401) {

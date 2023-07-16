@@ -10,9 +10,6 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 
-// import NoteCreateForm from "../notes/NoteCreateForm";
-// import { useCurrentUser } from "../../contexts/CurrentUserContext";
-// import Note from "../../components/Note";
 import { Card } from "react-bootstrap";
 import { OptionDropdown } from "../../components/OptionDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
