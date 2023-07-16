@@ -17,7 +17,6 @@ function TaskCreateForm() {
   
   
   const projectId = useParams();
-  console.log(projectId)
 
   const [taskData, setTaskData] = useState({
     task: "",

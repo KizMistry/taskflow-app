@@ -33,7 +33,6 @@ function TaskEditForm() {
 
   const history = useHistory();
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -48,7 +47,6 @@ function TaskEditForm() {
           task_status,
           is_owner,
         } = data;
-        console.log(data.project);
         is_owner
           ? setTaskData({
               project,
@@ -66,7 +64,6 @@ function TaskEditForm() {
     handleMount();
   }, [history, id]);
 
-  console.log(taskData.project);
 
   const fileInput = useRef(null);
 
