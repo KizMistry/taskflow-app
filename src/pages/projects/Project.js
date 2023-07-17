@@ -38,8 +38,8 @@ const Project = (props) => {
     <Card className={styles.Project}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
+          <span>{updated_at}</span>
           <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
             {is_owner && projectPage && (
               <OptionDropdown
                 handleEdit={handleEdit}

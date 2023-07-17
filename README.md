@@ -1,100 +1,174 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# TaskFlow
+ 
+Welcome to TaskFlow! TaskFlow is a powerful task management application that empowers users to efficiently organize and track their projects and tasks. With TaskFlow, you can easily create projects, add tasks with customizable statuses and priorities, and stay on top of your workflow. TaskFlow provides a seamless experience to help you stay organized and productive. This readme guide will walk you through the key features and functionalities of TaskFlow, enabling you to make the most out of this versatile task management tool. Let's get started!
 
-Welcome,
+![TaskFlow](/static/assets/readme-media/home.png)
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Features 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **19th April, 2023**
+### Existing Features
 
-## Codeanywhere Reminders
+- __Navigation Bar__
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+  - Featured on all pages, the full responsive navigation bar includes links to the Home/Projects, Tasks, Create Project, Sign Up / Sign In section. Identical in each page to allow for easy navigation.
+  - The navigation bar is responsive and will collapse into a hamburger menu when used on medium and small screens.
+  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
 
-To log into the Heroku toolbelt CLI:
+![Nav Bar](/static/assets/nav-bar.png)
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- __The Landing Page__
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+  - The landing page instructs users to sign in/up to access the app if not already signed in.
+  - Signed in users are presented with a list of all their current projects.
+  - User can find specific project via the search bar filter.
 
----
+![Landing Page](/static/assets/landing-page.png)
 
-Happy coding!
+- __The Users Task Page__
 
-# Getting Started with Create React App
+  - The Tasks page list all the users tasks in a corresponding 'ToDo', 'In Progress', 'Completed' section. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Users Task Page](/static/assets/tasks-page.png)
 
-## Available Scripts
+- __Sign In/Up Section__
 
-In the project directory, you can run:
+  - This section will allow the user to sign in/up to TaskFlow.
+  - This gives the user access to the application.
 
-### `npm install`
+![Sign In/Up](/static/assets/sign-in.png)
 
-Installs the required npm packages.
+- __Create / Edit / Delete Project__ 
 
-### `npm start`
+  - The user can start a project by completing the Create Project form.
+  - The user can edit the projects name and description.
+  - The user can delete their project, this will also delete any tasks attached to the project.
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+![Create Project](/static/assets/project-create.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- __Create / Edit/ Delete Task__
 
-### `npm test`
+  - The user can add a task to their project and set the status and priority.
+  - The user can edit the tasks name, description, status, priority.
+  - The user can delete their tasks.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Create Task](/static/assets/task-create.png)
 
-### `npm run build`
+- __Project Page__
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - This page shows the projects data.
+  - The user can see tasks related to the selected project. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Project Page](/static/assets/project-page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- __Task Page__
 
-### `npm run eject`
+  - This page shows the selected task in more detail.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Task Page](/static/assets/task-page.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Future Feature Ideas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- __Profile Page__
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - User profile page to display profile info and ability to update user info
 
-## Learn More
+- __Filter Tasks__
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - User can filter Tasks by task name, description, priority
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- __Follow Other Users__
 
-### Code Splitting
+  - Follow users you may know
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- __Add Other Users to Projects__
 
-### Analyzing the Bundle Size
+  - Other users can be added to your project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- __Assign Tasks to Users in Project__
 
-### Making a Progressive Web App
+  - Tasks can be assigned to users part of the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- __Add Notes to Projects/Tasks__
 
-### Advanced Configuration
+  - A notes section where user can add notes to a task or project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- __File Uploads__
 
-### Deployment
+  - Ability to add files to a task or project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Design
 
-### `npm run build` fails to minify
+React bootstrap was used as a structure which I could then build upon. This enabled a HTML foundation which could then be designed to suit the theme of the application.
+(*The current layout and style is not the final design.*)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Testing 
+
+The TaskFlow app's current iteration works as intended.
+All sections were tested; Some of the main testing points included:
+
+| Test       | Expected           | Passed  |
+| :------------- |:-------------:| :-----:|
+| User clicks all navigation links on home page     | Taken to corresponding page | ✅ |
+| User logs in / registers | Nav links change and access to projects/tasks becomes available | ✅ |
+| User clicks 'Create Project'| Directed to create project page | ✅ |
+| User completes create project form and submits (valid data) | Project created and redirected to Project page with project info | ✅ |
+| User completes project form and submits (invalid data)| Error / Invalid messages | ✅ |
+| User clicks edit project button | Directed to edit project page with prepopulated form | ✅ |
+| User updates project (valid data) | Project details updated successfully and redirected to previous page | ✅ |
+| User updates project (invalid data) | Error / Invalid messages | ✅ |
+| User clicks delete icon on project page | Project is deleted and redirected to landing page | ✅ |
+| User clicks 'Add Task'| Directed to create task page | ✅ |
+| User completes create task form and submits (valid data) | Task created and redirected to previous page | ✅ |
+| User completes task form and submits (invalid data)| Error / Invalid messages | ✅ |
+| User clicks edit task button | Directed to edit task page with prepopulated form | ✅ |
+| User updates task (valid data) | Task details updated successfully and redirected to related project page | ✅ |
+| User updates task (invalid data) | Error / Invalid messages | ✅ |
+| User clicks delete icon on task page | Task is deleted and redirected to landing page | ✅ |
+| User clicks project card | Directed to the Project page | ✅ |
+| User clicks task card | Directed to the Task page | ✅ |
+| User types in the search bar on landing page | Project cards are filtered to match search | ✅ |
+
+
+The website was shared with family and friends to test the apps usage.
+
+### Validator Testing 
+
+- HTML
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftaskflow-2023-b9a3557ae482.herokuapp.com%2F)
+- CSS
+  - No errors were found when passing CSS through the official [(Jigsaw) validator](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Ftaskflow-2023-b9a3557ae482.herokuapp.com%2F&usermedium=all&vextwarning=&warning=1)
+- JS
+  - No errors were found when passing files through JSHint
+  - 3 warning for unused variables
+
+### Unfixed Bugs
+
+- There are no known bugs at this stage of the projects conception
+
+
+## Deployment
+
+The process of deploying TaskFlow to GitHub is detailed below: 
+
+- Create a new app on Heroku and connect it to GitHub account
+- Enable Automatic Deploys to automatically deploy code to Heroku whenever changes are pushed to the main branch of the GitHub repository
+- Set up the required environment variables in the Heroku app settings (such as your database connection string or any API keys)
+- Create a Procfile to specify the command that Heroku should use to start your app
+- Make sure code is production-ready by running any necessary build or compilation steps, and ensuring that all dependencies are properly installed
+- Push code to the main branch of the GitHub repository to trigger a deployment to Heroku
+- Monitor the deployment logs in the Heroku dashboard to ensure that the app is starting up correctly and there are no errors. 
+
+The live link can be found here - https://taste-of-india.herokuapp.com/
+
+
+## Credits 
+
+CSS styles have been taken from Code Institutes Moments walkthrough project
+
+### Content 
+
+- All icons used are from [Font Awesome](https://fontawesome.com/)
+
+### Media
+
+- All images used are from [Pexels](https://www.pexels.com)
