@@ -127,6 +127,7 @@ All sections were tested; Some of the main testing points included:
 | User clicks project card | Directed to the Project page | ✅ |
 | User clicks task card | Directed to the Task page | ✅ |
 | User types in the search bar on landing page | Project cards are filtered to match search | ✅ |
+| User clicks sign out | User is signed out and directed to the logged out home page | ✅ |
 
 
 The website was shared with family and friends to test the apps usage.

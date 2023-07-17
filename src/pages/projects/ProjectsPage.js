@@ -89,7 +89,7 @@ function ProjectsPage({ message, filter = "" }) {
                         message={"Get started by creating a project"}
                       />
                       <Link
-                        className={styles.NavLink}
+                        className={`${styles.NavLink} ${appStyles.Center}`}
                         activeClassName={styles.Active}
                         to="/projects/create"
                       >

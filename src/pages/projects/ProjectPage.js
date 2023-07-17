@@ -14,7 +14,6 @@ import Project from "./Project";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-
 function ProjectPage() {
   const { id } = useParams();
   const [project, setProject] = useState({ results: [] });
@@ -108,10 +107,15 @@ function ProjectPage() {
           />
         </Col>
       </Row>
-      <Row>
-        <Link to={`${id}/tasks/create`}>
+      <Row className="h-100">
+      <Container>
+        <Link
+          className={appStyles.Center}
+          to={`${id}/tasks/create`}
+        >
           <i className="fas fa-plus-square"></i>Add Task
         </Link>
+        </Container>
       </Row>
 
       <Row className="h-100">
