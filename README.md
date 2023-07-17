@@ -163,6 +163,7 @@ The live link can be found here - https://taste-of-india.herokuapp.com/
 ## Credits 
 
 CSS styles have been taken from Code Institutes Moments walkthrough project
+Some code used may have been recycled from Code Institutes Moments walkthrough project
 
 ### Content 
 
