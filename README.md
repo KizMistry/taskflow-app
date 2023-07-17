@@ -2,8 +2,6 @@
  
 Welcome to TaskFlow! TaskFlow is a powerful task management application that empowers users to efficiently organize and track their projects and tasks. With TaskFlow, you can easily create projects, add tasks with customizable statuses and priorities, and stay on top of your workflow. TaskFlow provides a seamless experience to help you stay organized and productive. This readme guide will walk you through the key features and functionalities of TaskFlow, enabling you to make the most out of this versatile task management tool. Let's get started!
 
-![TaskFlow](/static/assets/readme-media/home.png)
-
 ## Features 
 
 ### Existing Features
