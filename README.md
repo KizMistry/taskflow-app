@@ -157,7 +157,7 @@ The process of deploying TaskFlow to GitHub is detailed below:
 - Push code to the main branch of the GitHub repository to trigger a deployment to Heroku
 - Monitor the deployment logs in the Heroku dashboard to ensure that the app is starting up correctly and there are no errors. 
 
-The live link can be found here - https://taste-of-india.herokuapp.com/
+The live link can be found here - https://taskflow-2023-b9a3557ae482.herokuapp.com/
 
 
 ## Credits 
