@@ -152,10 +152,44 @@ The process of deploying TaskFlow to GitHub is detailed below:
 - Create a new app on Heroku and connect it to GitHub account
 - Enable Automatic Deploys to automatically deploy code to Heroku whenever changes are pushed to the main branch of the GitHub repository
 - Set up the required environment variables in the Heroku app settings (such as your database connection string or any API keys)
-- Create a Procfile to specify the command that Heroku should use to start your app
+- Create a Procfile to specify the command that Heroku should use to start the app
 - Make sure code is production-ready by running any necessary build or compilation steps, and ensuring that all dependencies are properly installed
 - Push code to the main branch of the GitHub repository to trigger a deployment to Heroku
-- Monitor the deployment logs in the Heroku dashboard to ensure that the app is starting up correctly and there are no errors. 
+- Monitor the deployment logs in the Heroku dashboard to ensure that the app is starting up correctly and there are no errors.
+
+- ### Configuring Front-End React App
+
+To connect the front-end React app with the Django API, these steps were taken:
+
+1. **Heroku Configuration:**
+   - Go to Heroku and select your DRF API project on the dashboard.
+
+2. **Set Config Vars:**
+   - Add a new config var named `CLIENT_ORIGIN` and set it to the URL of the deployed React application.
+   - Add another config var named `CLIENT_ORIGIN_DEV` and set it to the Gitpod preview link (without a trailing slash).
+   - Gitpod preview URLs may change, so if needed, the `CLIENT_ORIGIN_DEV` was updated.
+
+3. **Install Axios:**
+   - Install the Axios library in Gitpod workspace using the following command:
+     ```
+     npm install axios
+     ```
+
+4. **Create Axios Defaults:**
+   - Create a folder named `api` and created an `axiosDefaults` file inside it.
+
+5. **Configure Axios:**
+   - Inside `axiosDefaults`:
+     - Import Axios.
+     - Define the `baseURL` as the unique URL of the deployed API.
+     - Set the `content-type` header to `multipart/form-data` to handle image and text requests.
+     - Set `withCredentials` to `true` to avoid CORS errors when sending cookies.
+
+6. **Import Axios Configuration:**
+   - Import the Axios configuration into the `App.js` file in the React app.
+
+These steps ensure that the TaskFlow app can send requests to the Django TaskFlow API and receive responses correctly.
+
 
 The live link can be found here - https://taskflow-2023-b9a3557ae482.herokuapp.com/
 
