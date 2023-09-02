@@ -193,6 +193,17 @@ These steps ensure that the TaskFlow app can send requests to the Django TaskFlo
 
 The live link can be found here - https://taskflow-2023-b9a3557ae482.herokuapp.com/
 
+## Libraries Used for Front-End
+
+1. **React:** The core library for building user interfaces.
+
+2. **ReactDOM:** Used for rendering React components in the DOM.
+
+3. **React Router:** Employed for handling routing and navigation within TaskFlow's single-page application.
+
+4. **Axios:** This library facilitated making HTTP requests from the TaskFlow Front-End React application to the Back-End TaskFlow API.
+
+5. **Bootstrap:** Utilized as a CSS framework for styling and ensuring a responsive design in the TaskFlow application.
 
 ## Credits 
 
