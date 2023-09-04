@@ -281,6 +281,7 @@ The OptionDropdown component is designed to be used within other components to p
 
 **Component Uses:**
 The OptionDropdown component has been used on:
+
 Project component: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d1383398612863504d23a46ea51/src/pages/projects/Project.js#L7
 Task Page: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d1383398612863504d23a46ea51/src/pages/tasks/TaskPage.js#L14
 
@@ -292,7 +293,7 @@ Enhances the user interface by providing a consistent and visually appealing way
 
 ### Project Component
 
-**Purpose:** The `Project` component is used to display project details in a card format. It is typically used to present project information, including title, description, and the number of associated tasks and notes. Additionally, it provides options for editing and deleting projects when applicable.
+**Purpose:** The `Project` component is used to display project details in a card format. It is used to present project information, including title, description, and the number of associated tasks and notes. Additionally, it provides options for editing and deleting projects when applicable.
 
 **Props:**
 
@@ -309,8 +310,11 @@ Enhances the user interface by providing a consistent and visually appealing way
 The Project component is composed of the following elements:
 
 Card: Renders the project information within a card container.
+
 Media: Arranges elements in a media format, allowing flexible content placement.
+
 Link: Provides a link to the project's details page.
+
 OptionDropdown: A reusable component for displaying edit and delete options based on user ownership.
 
 **Benefits:**
@@ -330,7 +334,9 @@ Provides a user-friendly interface for managing projects, including editing and 
 **Component Uses:**
 The Task component is composed of the following elements:
 
+
 Card: Renders the task information within a card container.
+
 Link: Provides a link to the task's details page.
 
 **Benefits:**
