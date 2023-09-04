@@ -265,9 +265,9 @@ Navigation Links: Depending on whether a user is logged in or not, it displays l
 
 **Benefits:**
 
-Encourages consistent navigation and user experience throughout the application.
-Provides an easy way to handle user authentication actions, such as sign-in and sign-out.
-Adapts to different screen sizes with responsive design using Bootstrap components.
+- Encourages consistent navigation and user experience throughout the application.
+- Provides an easy way to handle user authentication actions, such as sign-in and sign-out.
+- Adapts to different screen sizes with responsive design using Bootstrap components.
 
 ### OptionDropdown Component
 
@@ -283,13 +283,14 @@ The OptionDropdown component is designed to be used within other components to p
 The OptionDropdown component has been used on:
 
 Project component: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d1383398612863504d23a46ea51/src/pages/projects/Project.js#L7
+
 Task Page: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d1383398612863504d23a46ea51/src/pages/tasks/TaskPage.js#L14
 
 **Benefits:**
 
-Promotes code reusability by encapsulating the dropdown menu logic.
-Simplifies the implementation of common actions like editing and deleting items.
-Enhances the user interface by providing a consistent and visually appealing way to access actions.
+- Promotes code reusability by encapsulating the dropdown menu logic.
+- Simplifies the implementation of common actions like editing and deleting items.
+- Enhances the user interface by providing a consistent and visually appealing way to access actions.
 
 ### Project Component
 
@@ -319,9 +320,9 @@ OptionDropdown: A reusable component for displaying edit and delete options base
 
 **Benefits:**
 
-Encourages code reusability by encapsulating project card rendering logic.
-Enhances consistency in displaying project details across the application.
-Provides a user-friendly interface for managing projects, including editing and deletion options.
+- Encourages code reusability by encapsulating project card rendering logic.
+- Enhances consistency in displaying project details across the application.
+- Provides a user-friendly interface for managing projects, including editing and deletion options.
 
 ### Task Component
 
@@ -341,9 +342,9 @@ Link: Provides a link to the task's details page.
 
 **Benefits:**
 
-Encourages code reusability by encapsulating task card rendering logic.
-Ensures a consistent layout for displaying task details across the application.
-Provides an easy navigation link to the task's details for enhanced user experience.
+- Encourages code reusability by encapsulating task card rendering logic.
+- Ensures a consistent layout for displaying task details across the application.
+- Provides an easy navigation link to the task's details for enhanced user experience.
 
 ## Credits 
 
