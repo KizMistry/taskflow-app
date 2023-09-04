@@ -205,6 +205,36 @@ The live link can be found here - https://taskflow-2023-b9a3557ae482.herokuapp.c
 
 5. **Bootstrap:** Utilized as a CSS framework for styling and ensuring a responsive design in the TaskFlow application.
 
+
+## Reusable Components
+
+### Asset Component
+
+**Purpose:** The `Asset` component is used to display assets such as images along with optional loading spinners and messages.
+
+**Props:**
+- `spinner` (boolean): If `true`, displays a loading spinner while the asset is loading.
+- `src` (string): The source URL of the asset.
+- `message` (string): A message to display below the asset.
+
+**Component Composition:**
+
+The `Asset` component is used in various parts of the application to handle the display of assets. Here are a few examples:
+
+1. **Project Page:** [The `Asset` component is used to display project images.](https://github.com/KizMistry/taskflow-app/blob/main/src/pages/projects/ProjectPage.js#L6)
+
+2. **Tasks Page:** [It's used to show the user's profile picture.](https://github.com/KizMistry/taskflow-app/blob/main/src/pages/tasks/Tasks.js#L7)
+
+3. **Projects Page:** [In the task list, the `Asset` component is used to display task images.](https://github.com/KizMistry/taskflow-app/blob/main/src/pages/projects/ProjectsPage.js#L15)
+
+4. **Task Create Form** [https://github.com/KizMistry/taskflow-app/blob/main/src/pages/tasks/TaskCreateForm.js#L187]
+
+**Benefits:**
+
+- Promotes code reusability by handling asset display and loading states in a consistent way.
+- Enhances user experience by providing loading indicators when assets are being fetched.
+
+
 ## Credits 
 
 CSS styles have been taken from Code Institutes Moments walkthrough project
