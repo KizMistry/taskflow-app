@@ -221,13 +221,10 @@ The live link can be found here - https://taskflow-2023-b9a3557ae482.herokuapp.c
 
 The `Asset` component is used in various parts of the application to handle the display of assets. Here are a few examples:
 
-1. Project Page: https://github.com/KizMistry/taskflow-app/blob/main/src/pages/projects/ProjectPage.js#L6
-
-2. Tasks Page: https://github.com/KizMistry/taskflow-app/blob/main/src/pages/tasks/Tasks.js#L7
-
-3. Projects Page: https://github.com/KizMistry/taskflow-app/blob/main/src/pages/projects/ProjectsPage.js#L15
-
-4. Task Create Form https://github.com/KizMistry/taskflow-app/blob/main/src/pages/tasks/TaskCreateForm.js#L187
+- Project Page: https://github.com/KizMistry/taskflow-app/blob/main/src/pages/projects/ProjectPage.js#L6
+- Tasks Page: https://github.com/KizMistry/taskflow-app/blob/main/src/pages/tasks/Tasks.js#L7
+- Projects Page: https://github.com/KizMistry/taskflow-app/blob/main/src/pages/projects/ProjectsPage.js#L15
+- Task Create Form https://github.com/KizMistry/taskflow-app/blob/main/src/pages/tasks/TaskCreateForm.js#L187
 
 **Benefits:**
 
