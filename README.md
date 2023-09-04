@@ -217,7 +217,7 @@ The live link can be found here - https://taskflow-2023-b9a3557ae482.herokuapp.c
 - `src` (string): The source URL of the asset.
 - `message` (string): A message to display below the asset.
 
-**Component Composition:**
+**Component Uses:**
 
 The `Asset` component is used in various parts of the application to handle the display of assets. Here are a few examples:
 
@@ -234,6 +234,110 @@ The `Asset` component is used in various parts of the application to handle the 
 - Promotes code reusability by handling asset display and loading states in a consistent way.
 - Enhances user experience by providing loading indicators when assets are being fetched.
 
+### Avatar Component
+
+**Purpose:** The `Avatar` component is used to display user avatars with optional text.
+
+**Props:**
+- `src` (string, required): The source URL of the avatar image.
+- `height` (number, default: 45): The height of the avatar image.
+- `text` (string): Text to display alongside the avatar.
+
+**Component Uses:**
+
+The `Avatar` component is to be used to display the user's avatar in various parts of the application. Instances this will be integrated eventually are:
+
+Profile Page, NavBar Component, Note Component, Note Create Form.
+
+**Benefits:**
+
+- Encourages code reusability by providing a consistent way to display user avatars.
+- Allows customization of avatar height and the display of optional text.
+
+### NavBar Component
+
+**Purpose:** The `NavBar` component serves as the application's navigation bar, providing links to various sections of the application and user authentication options.
+
+The NavBar component is a fundamental part of the application's layout and navigation. It consists of the following elements:
+
+Logo: Displays the application logo and links to the homepage.
+Navigation Links: Depending on whether a user is logged in or not, it displays links to different sections of the application.
+
+**Benefits:**
+
+Encourages consistent navigation and user experience throughout the application.
+Provides an easy way to handle user authentication actions, such as sign-in and sign-out.
+Adapts to different screen sizes with responsive design using Bootstrap components.
+
+### OptionDropdown Component
+
+**Purpose:** The `OptionDropdown` component provides a customizable dropdown menu with options like "Edit" and "Delete" typically used for actions related to a specific item, such as a project or task.
+
+**Props:**
+- `handleEdit` (function, required): A callback function to handle the "Edit" action when selected from the dropdown.
+- `handleDelete` (function, required): A callback function to handle the "Delete" action when selected from the dropdown.
+
+The OptionDropdown component is designed to be used within other components to provide actions for that item.
+
+**Component Uses:**
+The OptionDropdown component has been used on:
+Project component: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d1383398612863504d23a46ea51/src/pages/projects/Project.js#L7
+Task Page: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d1383398612863504d23a46ea51/src/pages/tasks/TaskPage.js#L14
+
+**Benefits:**
+
+Promotes code reusability by encapsulating the dropdown menu logic.
+Simplifies the implementation of common actions like editing and deleting items.
+Enhances the user interface by providing a consistent and visually appealing way to access actions.
+
+### Project Component
+
+**Purpose:** The `Project` component is used to display project details in a card format. It is typically used to present project information, including title, description, and the number of associated tasks and notes. Additionally, it provides options for editing and deleting projects when applicable.
+
+**Props:**
+
+- `id`: The unique identifier for the project.
+- `owner` (string, required): The username of the project owner.
+- `tasks_count` (number, required): The count of tasks associated with the project.
+- `notes_count` (number, required): The count of notes associated with the project.
+- `title` (string, required): The title of the project.
+- `description` (string): The description of the project.
+- `updated_at` (string): The timestamp indicating when the project was last updated.
+- `projectPage` (boolean): A flag indicating whether the component is displayed on the project page.
+
+**Component Uses:**
+The Project component is composed of the following elements:
+
+Card: Renders the project information within a card container.
+Media: Arranges elements in a media format, allowing flexible content placement.
+Link: Provides a link to the project's details page.
+OptionDropdown: A reusable component for displaying edit and delete options based on user ownership.
+
+**Benefits:**
+
+Encourages code reusability by encapsulating project card rendering logic.
+Enhances consistency in displaying project details across the application.
+Provides a user-friendly interface for managing projects, including editing and deletion options.
+
+### Task Component
+
+**Purpose:** The `Task` component is used to display individual task details in a card format. It is typically used to present task information, including the task name, description, and priority. This component also provides a link to the task's details page.
+
+**Props:**
+
+- `task` (object, required): An object containing task details, including `id`, `task`, `description`, and `task_priority`.
+
+**Component Uses:**
+The Task component is composed of the following elements:
+
+Card: Renders the task information within a card container.
+Link: Provides a link to the task's details page.
+
+**Benefits:**
+
+Encourages code reusability by encapsulating task card rendering logic.
+Ensures a consistent layout for displaying task details across the application.
+Provides an easy navigation link to the task's details for enhanced user experience.
 
 ## Credits 
 
