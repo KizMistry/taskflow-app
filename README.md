@@ -258,10 +258,12 @@ Profile Page, NavBar Component, Note Component, Note Create Form.
 
 **Purpose:** The `NavBar` component serves as the application's navigation bar, providing links to various sections of the application and user authentication options.
 
+**Component Uses:**
+
 The NavBar component is a fundamental part of the application's layout and navigation. It consists of the following elements:
 
-Logo: Displays the application logo and links to the homepage.
-Navigation Links: Depending on whether a user is logged in or not, it displays links to different sections of the application.
+- Logo: Displays the application logo and links to the homepage.
+- Navigation Links: Depending on whether a user is logged in or not, it displays links to different sections of the application.
 
 **Benefits:**
 
@@ -310,13 +312,10 @@ Task Page: https://github.com/KizMistry/taskflow-app/blob/9f718b63bee00d13833986
 **Component Uses:**
 The Project component is composed of the following elements:
 
-Card: Renders the project information within a card container.
-
-Media: Arranges elements in a media format, allowing flexible content placement.
-
-Link: Provides a link to the project's details page.
-
-OptionDropdown: A reusable component for displaying edit and delete options based on user ownership.
+- Card: Renders the project information within a card container.
+- Media: Arranges elements in a media format, allowing flexible content placement.
+- Link: Provides a link to the project's details page.
+- OptionDropdown: A reusable component for displaying edit and delete options based on user ownership.
 
 **Benefits:**
 
@@ -335,10 +334,8 @@ OptionDropdown: A reusable component for displaying edit and delete options base
 **Component Uses:**
 The Task component is composed of the following elements:
 
-
-Card: Renders the task information within a card container.
-
-Link: Provides a link to the task's details page.
+- Card: Renders the task information within a card container.
+- Link: Provides a link to the task's details page.
 
 **Benefits:**
 
