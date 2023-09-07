@@ -76,7 +76,8 @@ figure {
 }
 
 .tasksSpan {
-  padding: 12px
+  padding: 12px;
+  text-align: center;
 }
 
 /* scrollbar */

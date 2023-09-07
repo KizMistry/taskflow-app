@@ -82,7 +82,7 @@ function ProjectPage() {
                     ))}
                   </InfiniteScroll>
                 ) : (
-                  <span>No tasks to display</span>
+                  <span className={appStyles.tasksSpan}>No tasks to display</span>
                 )}
               </>
             ) : (
