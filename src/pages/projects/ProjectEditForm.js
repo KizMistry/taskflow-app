@@ -113,7 +113,7 @@ function ProjectEditForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col md={12} lg={12} className="d-none d-md-block p-0 p-md-2">
+        <Col md={12} lg={12} className="d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
