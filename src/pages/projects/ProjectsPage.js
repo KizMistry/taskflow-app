@@ -108,11 +108,27 @@ function ProjectsPage({ message, filter = "" }) {
         </>
       ) : (
         <>
-          <Container className={appStyles.Content}>
+          <Container className={`text-center ${appStyles.Content}`}>
             <div>
               <p>Welcome to TaskFlow! </p>
-              <p> Create your project and manage your tasks.</p>
-              <p>Sign in to get started</p>
+              <p>
+                TaskFlow is a convenient task management application that can
+                help you organize and track your projects and tasks.
+              </p>
+              <p>
+                With TaskFlow, you can easily create projects, add tasks with
+                customizable statuses and priorities, and stay on top of your
+                workflow.
+              </p>
+                <Link
+                  className={styles.NavLink}
+                  activeClassName={styles.Active}
+                  to="/signin"
+                >
+                  Sign in <strong>
+                  <u>here</u> 
+                </strong> to get started
+                </Link>
             </div>
           </Container>
         </>
