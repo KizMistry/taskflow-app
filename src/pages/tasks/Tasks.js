@@ -72,7 +72,7 @@ const Tasks = () => {
                     ))}
                   </InfiniteScroll>
                 ) : (
-                  <span>No tasks to display</span>
+                  <span className={`text-center ${appStyles.tasksSpan}`}>No tasks to display</span>
                 )}
               </>
             ) : (
