@@ -96,7 +96,41 @@ Welcome to TaskFlow! TaskFlow is a powerful task management application that emp
 
 ## Design
 
-React bootstrap was used as a structure which I could then build upon. This enabled a HTML foundation which could then be designed to suit the theme of the application.
+React bootstrap was used as a structure which I could then build upon. This enabled an HTML foundation which could then be designed to suit the theme of the application.
+
+**Color Scheme:**
+- **Background Color:** `#f8f8f8`
+  - This light grayish background color provides a neutral and clean canvas for the application.
+
+- **Content Background Color:** `#ffffff`
+  - This white background color is used for the main content area, creating a clear visual separation between content and background.
+
+- **Text Color:** `#555555`
+  - This medium gray is the default text color for links and regular text.
+
+- **Link Color (Unhovered):** `#555555`
+  - Unhovered links are styled in the same medium gray color, providing a subtle contrast with the text.
+
+- **Link Color (Hovered):** Orange
+  - Links turn orange when hovered over, providing a clear visual indicator of interactivity.
+
+- **Icon Color:** `#cfced3`
+  - Icons are styled in a light gray color.
+
+- **Icon Color (Hovered):** Orange
+  - Icons turn orange when hovered over, adding interactivity feedback.
+
+**Font Details:**
+- **Font Family:** "DM Sans", sans-serif
+  - The primary font used for the application is "DM Sans." It's a sans-serif font family that offers a clean and modern look.
+
+- **Font Sizes:**
+  - **Default Text:** The default font size is set to be the browser default or inherited from the browser settings.
+  - **Icon Font Size:** 1.6rem
+    - Icons are styled with a font size of 1.6rem, making them easily distinguishable.
+
+These color and font choices contribute to a clean and visually appealing design. The use of orange for link hover states adds a touch of interactivity and visual feedback, making it clear to users that certain elements are clickable.
+
 (*The current layout and style is not the final design.*)
 
 ## Testing 
