@@ -205,9 +205,9 @@ To connect the front-end React app with the Django API, these steps were taken:
 
 3. **Install Axios:**
    - Install the Axios library in Gitpod workspace using the following command:
-     ```
+     `
      npm install axios
-     ```
+     `
 
 4. **Create Axios Defaults:**
    - Create a folder named `api` and created an `axiosDefaults` file inside it.
