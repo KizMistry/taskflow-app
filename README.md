@@ -98,6 +98,9 @@ Welcome to TaskFlow! TaskFlow is a powerful task management application that emp
 
 React bootstrap was used as a structure which I could then build upon. This enabled an HTML foundation which could then be designed to suit the theme of the application.
 
+**Wireframes**
+The wireframes for the Taskflow app can be found [here](https://github.com/KizMistry/taskflow-app/tree/main/static/assets/wireframes).
+
 **Color Scheme:**
 - **Background Color:** `#f8f8f8`
   - This light grayish background color provides a neutral and clean canvas for the application.
