@@ -139,10 +139,23 @@ These color and font choices contribute to a clean and visually appealing design
 ## Testing 
 
 The TaskFlow app's current iteration works as intended.
-All sections were tested; Some of the main testing points included:
+All sections of Taskflow were tested End to End; Some of the main testing points included:
 
 | Test       | Expected           | Passed  |
 | :------------- |:-------------:| :-----:|
+| Non-authenticated user tries accessing URL endpoints '/projects' | Displays Welcome message requesting user to sign in/up  | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/projects/:id' | Redirected to Sign In page  | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/projects/create' | Redirected to Sign In page | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/projects/:id/edit' | Redirected to Sign In page | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/projects/:id/tasks/create' | Redirected to Sign In page | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/tasks' | Redirected to Sign In page | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/tasks/:id' | Redirected to Sign In page | ✅ |
+| Non-authenticated user tries accessing URL endpoints '/tasks/:id/edit' | Redirected to Sign In page | ✅ |
+| Authenticated user tries accessing projects they don't own via URL endpoints '/projects/:id' | Redirected to Home/Projects Page | ✅ |
+| Authenticated user tries editing projects they don't own via URL endpoints '/projects/:id/edit' | Redirected to Home/Projects Page | ✅ |
+| Authenticated user tries creating tasks for projects they don't own via URL endpoints '/projects/:id/tasks/create' | Redirected to Home/Projects Page | ✅ |
+| Authenticated user tries accessing tasks they don't own via URL endpoints '/tasks/:id' | Redirected to Home/Projects Page | ✅ |
+| Authenticated user tries editing task they don't own via URL endpoints '/tasks/:id/edit' | Redirected to Home/Projects Page | ✅ |
 | User clicks all navigation links on home page     | Taken to corresponding page | ✅ |
 | User logs in / registers | Nav links change and access to projects/tasks becomes available | ✅ |
 | User clicks 'Create Project'| Directed to create project page | ✅ |
@@ -162,10 +175,10 @@ All sections were tested; Some of the main testing points included:
 | User clicks project card | Directed to the Project page | ✅ |
 | User clicks task card | Directed to the Task page | ✅ |
 | User types in the search bar on landing page | Project cards are filtered to match search | ✅ |
-| User clicks sign out | User is signed out and directed to the logged out home page | ✅ |
+| User clicks sign out | User is signed out and directed to the logged-out home page | ✅ |
 
 
-The website was shared with family and friends to test the apps usage.
+The website was shared with family and friends to test the app's usage.
 
 ### Validator Testing 
 
