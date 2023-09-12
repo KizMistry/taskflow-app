@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
@@ -34,29 +34,64 @@ function App() {
               />
             )}
           />
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route
+            exact
+            path="/signin"
+            render={() => (!currentUser ? <SignInForm /> : <Redirect to="/" />)}
+          />
+          <Route
+            exact
+            path="/signup"
+            render={() => (!currentUser ? <SignUpForm /> : <Redirect to="/" />)}
+          />
           <Route
             exact
             path="/projects/create"
-            render={() => <ProjectCreateForm />}
+            render={() =>
+              currentUser ? <ProjectCreateForm /> : <Redirect to="/signin" />
+            }
           />
           <Route exact path="/projects" render={() => <ProjectsPage />} />
-          <Route exact path="/projects/:id" render={() => <ProjectPage />} />
+          <Route
+            exact
+            path="/projects/:id"
+            render={() =>
+              currentUser ? <ProjectPage /> : <Redirect to="/signin" />
+            }
+          />
           <Route
             exact
             path="/projects/:id/edit"
-            render={() => <ProjectEditForm />}
+            render={() =>
+              currentUser ? <ProjectEditForm /> : <Redirect to="/signin" />
+            }
           />
-          <Route exact path="/tasks" render={() => <Tasks />} />
+          <Route
+            exact
+            path="/tasks"
+            render={() => (currentUser ? <Tasks /> : <Redirect to="/signin" />)}
+          />
           <Route
             exact
             path="/projects/:id/tasks/create"
-            render={() => <TaskCreateForm />}
+            render={() =>
+              currentUser ? <TaskCreateForm /> : <Redirect to="/signin" />
+            }
           />
-          <Route exact path="/tasks/:id" render={() => <TaskPage />} />
-          <Route exact path="/tasks/:id/edit" render={() => <TaskEditForm />} />
-
+          <Route
+            exact
+            path="/tasks/:id"
+            render={() =>
+              currentUser ? <TaskPage /> : <Redirect to="/signin" />
+            }
+          />
+          <Route
+            exact
+            path="/tasks/:id/edit"
+            render={() =>
+              currentUser ? <TaskEditForm /> : <Redirect to="/signin" />
+            }
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
