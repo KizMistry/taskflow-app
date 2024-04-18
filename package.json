@@ -19,8 +19,9 @@
   },
   "scripts": {
     "heroku-prebuild": "npm install -g serve",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node server.js",
+    "dev": "vite",
+    "build": "vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
