@@ -1,9 +1,12 @@
+/* Global App Styles */
 .App {
   font-family: "DM Sans", sans-serif;
-  background-color: #f8f8f8;
+  background-color: #f9fafb;
   min-height: 100vh;
+  color: #333;
 }
 
+/* Layout Helpers */
 .Center {
   display: flex;
   flex-direction: column;
@@ -12,32 +15,42 @@
 }
 
 .Main {
-  padding-top: 81px;
+  padding-top: 85px;
+  padding-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Content Containers */
 .Content {
   background-color: #ffffff;
-  padding: 10px;
-  border-radius: 2px;
-  border: 1px solid #dadadf;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease-in-out;
 }
 
+.Content:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Images */
 .FillerImage {
   object-fit: cover;
   height: 100%;
   width: 100%;
+  border-radius: 8px;
 }
 
 .Image {
   max-height: 40vh;
   max-width: 100%;
   object-fit: contain;
+  border-radius: 8px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+/* Links */
 a {
   color: #555555;
   transition: color ease-in-out 0.3s;
@@ -45,20 +58,22 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: orange;
+  color: #ff6b35;
 }
 
 a:hover i {
-  color: orange;
+  color: #ff6b35;
   transition: color ease-in-out 0.3s;
 }
 
+/* Hide File Input */
 input[type="file"] {
   display: none;
 }
 
+/* Icons */
 i {
-  color: #cfced3;
+  color: #b5b5b5;
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;
@@ -67,29 +82,43 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: orange;
+  color: #ff6b35;
 }
 
+/* Figures */
 figure {
   text-align: center;
   display: inline-block;
 }
 
+/* Tasks Tag */
 .tasksSpan {
   padding: 12px;
   text-align: center;
+  background: #f3f4f6;
+  border-radius: 8px;
 }
 
-/* scrollbar */
+/* Scrollbar */
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
+
 *::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
 *::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #bbb;
+  border-radius: 6px;
 }
+
 *::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #999;
+}
+
+/* Smooth Transitions for UI */
+* {
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
