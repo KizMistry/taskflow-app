@@ -36,4 +36,51 @@ h5 {
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
-  co
+  color: #777777;
+  padding: 8px 16px;
+  border-bottom: 1px solid #dadadf;
+}
+
+/* Project title and description */
+.Project > a {
+  text-decoration: none;
+  color: #555555;
+}
+
+.Project > a:hover {
+  color: orange;
+}
+
+.Project .card-body:nth-child(2) {
+  padding: 16px;
+}
+
+.Project .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.Project .card-text {
+  font-size: 0.95rem;
+  color: #666666;
+}
+
+/* Footer for tasks/notes count */
+.Project .card-footer {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+  background-color: #f8f8f8;
+  border-top: 1px solid #dadadf;
+  font-size: 0.9rem;
+}
+
+.Project .card-footer i {
+  margin-right: 4px;
+  color: #cfced3;
+}
+
+.Project .card-footer i.fa-solid {
+  margin-left: 8px;
+}
