@@ -1,23 +1,53 @@
+/* Task Status Styles */
 .ToDo {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #ffe2e6; /* light red */
+  color: #a94442;
+  border-left: 5px solid #dc3545;
 }
 
 .InProgress {
-  background-color: #fff3cd;
+  background-color: #fff8e1; /* light yellow */
   color: #856404;
+  border-left: 5px solid #ffc107;
 }
 
 .Done {
-  background-color: #d4edda;
+  background-color: #e6ffed; /* light green */
   color: #155724;
+  border-left: 5px solid #28a745;
 }
 
+/* General Task Card Styles */
 .Task {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.Task:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.Task .card-body {
+  padding: 1rem 1.25rem;
+}
+
+/* Column Styling */
+.Column {
+  background-color: #fdfdfd;
+  padding: 15px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
-.Column {
-  background-color: #f8f9fa;
-  padding: 10px;
+/* Section Headers */
+.TaskSectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
 }
