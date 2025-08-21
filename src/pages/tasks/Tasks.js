@@ -10,7 +10,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import appStyles from "../../App.module.css";
-import styles from "../styles/Task.module.css";
+import styles from "../../styles/Task.module.css";
 
 const Tasks = () => {
   const currentUser = useCurrentUser();
