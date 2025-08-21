@@ -2,6 +2,7 @@ import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Link from "react-router-dom/Link";
+import styles from "../styles/Task.module.css";
 
 const Task = (props) => {
   const { task } = props;
