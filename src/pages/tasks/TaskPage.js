@@ -54,27 +54,19 @@ function TaskPage() {
     <>
       <Row className="h-100">
         <Col md={12} lg={12}>
-          <Card className={styles.Project}>
-            <Card.Body>
-              <div className="d-flex align-items-center">
-                {is_owner && (
-                  <OptionDropdown
-                    handleEdit={handleEdit}
-                    handleDelete={handleDelete}
-                  />
-                )}
-              </div>
-            </Card.Body>
-
-            <Card.Body>
-              <Card.Title>{task.task}</Card.Title>
-              <Card.Text>{task.description}</Card.Text>
-              <Card.Text>Priority: {task.task_priority}</Card.Text>
-              <Card.Text>Status: {task.task_status}</Card.Text>
-              {/* <Card.Text>Notes: {task.notes_count}</Card.Text>
-            <Card.Text>File: {task.file}</Card.Text> */}
-            </Card.Body>
-          </Card>
+          <Card className={`Task ${task.task_status === "todo" ? "ToDo" : task.task_status === "in progress" ? "InProgress" : "Done"}`}>
+  <Card.Body>
+    <div className="d-flex justify-content-between align-items-start mb-2">
+      <Card.Title className="mb-0">{task.task}</Card.Title>
+      {is_owner && (
+        <OptionDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+      )}
+    </div>
+    <Card.Text className="mb-2">{task.description}</Card.Text>
+    <small className="d-block">Priority: {task.task_priority}</small>
+    <small className="d-block">Status: {task.task_status}</small>
+  </Card.Body>
+</Card>
 
           {/* <Container className={appStyles.Content}>
             {currentUser ? (
