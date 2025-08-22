@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import styles from "../../styles/TaskCreateForm.module.css";
+import styles from "../../styles/TaskCreateEditForm.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
