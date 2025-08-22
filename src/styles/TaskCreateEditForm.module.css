@@ -1,3 +1,4 @@
 .Container {
   min-height: 343px;
+  background: red !important;
 }
