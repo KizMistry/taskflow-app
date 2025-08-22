@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/TaskCreateForm.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
@@ -159,7 +160,9 @@ function TaskCreateForm() {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col md={12} lg={12} className="d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={`${appStyles.Content} ${styles.Container}`}>
+  {textFields}
+</Container>
         </Col>
         {/* <Container
           className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
