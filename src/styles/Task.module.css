@@ -1,53 +1,56 @@
 /* Task Status Styles */
 .ToDo {
-  background-color: #ffe2e6; /* light red */
-  color: #a94442;
-  border-left: 5px solid #dc3545;
+  background-color: #ffe2e6 !important; /* light red */
+  color: #a94442 !important;
+  border-left: 5px solid #dc3545 !important;
 }
 
 .InProgress {
-  background-color: #fff8e1; /* light yellow */
-  color: #856404;
-  border-left: 5px solid #ffc107;
+  background-color: #fff8e1 !important; /* light yellow */
+  color: #856404 !important;
+  border-left: 5px solid #ffc107 !important;
 }
 
 .Done {
-  background-color: #e6ffed; /* light green */
-  color: #155724;
-  border-left: 5px solid #28a745;
+  background-color: #e6ffed !important; /* light green */
+  color: #155724 !important;
+  border-left: 5px solid #28a745 !important;
 }
 
 /* General Task Card Styles */
 .Task {
-  margin-bottom: 20px;
-  border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
+  margin-bottom: 20px !important;
+  border-radius: 12px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  overflow: hidden !important;
+  background-color: #fff !important; /* ensures consistency */
+  border: none !important; /* remove bootstrap border */
 }
 
 .Task:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
 .Task .card-body {
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.25rem !important;
 }
 
 /* Column Styling */
 .Column {
-  background-color: #fdfdfd;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  background-color: #fdfdfd !important;
+  padding: 15px !important;
+  border-radius: 10px !important;
+  margin-bottom: 20px !important;
+  border: none !important;
 }
 
 /* Section Headers */
 .TaskSectionTitle {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px !important;
+  color: #333 !important;
+  border-bottom: 2px solid #eee !important;
+  padding-bottom: 5px !important;
 }
