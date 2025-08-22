@@ -89,34 +89,37 @@ const TaskSection = ({ title, taskStatus, tasks, hasLoaded }) => {
 };
 
 
-  return (
-    <Row className="h-100">
-      <Col>
-        <div className="bg-light p-2">
-          <TaskSection
-            title="Your Tasks To Do"
-            taskStatus="todo"
-            tasks={tasks}
-            hasLoaded={hasLoaded}
-          />
+return (
+  <Row className="h-100">
+    <Col md={4}>
+      <TaskSection
+        title="Your Tasks To Do"
+        taskStatus="todo"
+        tasks={tasks}
+        hasLoaded={hasLoaded}
+      />
+    </Col>
 
-          <TaskSection
-            title="Your Tasks In Progress"
-            taskStatus="in progress"
-            tasks={tasks}
-            hasLoaded={hasLoaded}
-          />
+    <Col md={4}>
+      <TaskSection
+        title="Your Tasks In Progress"
+        taskStatus="in progress"
+        tasks={tasks}
+        hasLoaded={hasLoaded}
+      />
+    </Col>
 
-          <TaskSection
-            title="Your Completed Tasks"
-            taskStatus="completed"
-            tasks={tasks}
-            hasLoaded={hasLoaded}
-          />
-        </div>
-      </Col>
-    </Row>
-  );
+    <Col md={4}>
+      <TaskSection
+        title="Your Completed Tasks"
+        taskStatus="completed"
+        tasks={tasks}
+        hasLoaded={hasLoaded}
+      />
+    </Col>
+  </Row>
+);
+
 };
 
 export default Tasks;
